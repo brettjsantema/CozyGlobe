@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 2233006937
+    locked: 0
+  - name: Midground
+    uniqueID: 3935017157
+    locked: 0
+  - name: Buildings 1
+    uniqueID: 3879054919
+    locked: 0
+  - name: Buildings 2
+    uniqueID: 942110573
+    locked: 0
+  - name: Decor 1
+    uniqueID: 3767110963
+    locked: 0
+  - name: Decor 2
+    uniqueID: 1982422335
+    locked: 0
+  - name: Villagers
+    uniqueID: 823955415
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
