@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Assets.Scripts.CozyGlobeUtils;
 
 public class CozyGlobe : MonoBehaviour
 {
-    [SerializeField] private GameObject CandyCane;
+    public GameObject CandyCane;
 
     public int Presents;
     public List<Villager> Villagers;
@@ -96,6 +97,7 @@ public class CozyGlobe : MonoBehaviour
 	{
         GameObject candyCane = Instantiate(CandyCane, worldPos, Quaternion.identity);
         candyCane.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-20f, 20f));
+        candyCane.transform.parent = GameObject.Find("Candy Canes").gameObject.transform;
     }
 
     public void Build(BuildingType type)

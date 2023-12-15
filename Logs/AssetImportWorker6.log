@@ -1,0 +1,558 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.15f1 (b58023a2b463) revision 11894819'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'en' Physical Memory: 32669 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+E:\Unity\2022.3.15f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker6
+-projectPath
+D:/Unity/Top Down Game/CozyGlobe
+-logFile
+Logs/AssetImportWorker6.log
+-srvPort
+61847
+Successfully changed project path to: D:/Unity/Top Down Game/CozyGlobe
+D:/Unity/Top Down Game/CozyGlobe
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [23256] Host "[IP] 192.168.0.18 [Port] 0 [Flags] 2 [Guid] 3239862934 [EditorId] 3239862934 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-4HD6LRJ) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [23256] Host "[IP] 192.168.0.18 [Port] 0 [Flags] 2 [Guid] 3239862934 [EditorId] 3239862934 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-4HD6LRJ) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 1133.81 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.15f1 (b58023a2b463)
+[Subsystems] Discovering subsystems at path E:/Unity/2022.3.15f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Unity/Top Down Game/CozyGlobe/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Ti (ID=0x2489)
+    Vendor:   NVIDIA
+    VRAM:     8038 MB
+    Driver:   31.0.15.4617
+Initialize mono
+Mono path[0] = 'E:/Unity/2022.3.15f1/Editor/Data/Managed'
+Mono path[1] = 'E:/Unity/2022.3.15f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'E:/Unity/2022.3.15f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56944
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: E:/Unity/2022.3.15f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.019320 seconds.
+- Loaded All Assemblies, in  0.770 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.302 seconds
+Domain Reload Profiling: 1072ms
+	BeginReloadAssembly (519ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (29ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (62ms)
+	LoadAllAssembliesAndSetupDomain (150ms)
+		LoadAssemblies (519ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (148ms)
+			TypeCache.Refresh (147ms)
+				TypeCache.ScanAssembly (135ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (302ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (243ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (163ms)
+			ProcessInitializeOnLoadMethodAttributes (64ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.418 seconds
+Refreshing native plugins compatible for Editor in 4.48 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.604 seconds
+Domain Reload Profiling: 2023ms
+	BeginReloadAssembly (164ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (24ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (38ms)
+	LoadAllAssembliesAndSetupDomain (1174ms)
+		LoadAssemblies (1056ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (218ms)
+			TypeCache.Refresh (192ms)
+				TypeCache.ScanAssembly (137ms)
+			ScanForSourceGeneratedMonoScriptInfo (20ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (604ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (424ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (51ms)
+			ProcessInitializeOnLoadAttributes (322ms)
+			ProcessInitializeOnLoadMethodAttributes (40ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.17 seconds
+Refreshing native plugins compatible for Editor in 7.61 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4033 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (61.6 KB). Loaded Objects now: 4494.
+Memory consumption went from 148.1 MB to 148.0 MB.
+Total: 3.882200 ms (FindLiveObjects: 0.271600 ms CreateObjectMapping: 0.351500 ms MarkObjects: 3.144100 ms  DeleteObjects: 0.113900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 43b350a4d6e6d1791af0b5038c4bea17 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 995492.780162 seconds.
+  path: Assets/Resources/winter_global_66.asset
+  artifactKey: Guid(039fd4d4ff6b64546a952aeb3162929d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_66.asset using Guid(039fd4d4ff6b64546a952aeb3162929d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ac0ce66cd7bba9013cc1e6338ce11a2') in 0.069077 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Resources/winter_global_402.asset
+  artifactKey: Guid(52dc7f4983302014d868dad00bd8f859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_402.asset using Guid(52dc7f4983302014d868dad00bd8f859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '589ded592e23e2417dee25fd6bbd5a7c') in 0.004612 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Resources/winter_global_418.asset
+  artifactKey: Guid(d94679e6d8705b947bfdad981f99f851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_418.asset using Guid(d94679e6d8705b947bfdad981f99f851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '118e1cb02c1429629cfbb5e6f26bfe52') in 0.005737 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Resources/winter_global_387.asset
+  artifactKey: Guid(c68be60efd3f5b84ab8ef2e524a0f594) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_387.asset using Guid(c68be60efd3f5b84ab8ef2e524a0f594) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50eee2d5cbb021ff970a52ab297228c1') in 0.060547 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Resources/winter_global_405.asset
+  artifactKey: Guid(aa8e741af5e13ae40ba54ef9d21a9b13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_405.asset using Guid(aa8e741af5e13ae40ba54ef9d21a9b13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9490f67134d18bf36dba48be66be4431') in 0.005115 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Resources/winter_global_395.asset
+  artifactKey: Guid(583eb962b592d9843bb89a9d8a5e14de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_395.asset using Guid(583eb962b592d9843bb89a9d8a5e14de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9995f69255b195d3435c5298fac95bb4') in 0.006401 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Resources/winter_global_381.asset
+  artifactKey: Guid(e7c000dc3b6c69748b32583094ed16ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_381.asset using Guid(e7c000dc3b6c69748b32583094ed16ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5057cef78b0285c96e91c4f8227c93b7') in 0.115643 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Resources/winter_global_434.asset
+  artifactKey: Guid(eb010bdc0c060984e8d73d7ceb51a32f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_434.asset using Guid(eb010bdc0c060984e8d73d7ceb51a32f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '959e6bc6517761df88d93cc3117a204c') in 0.007860 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Resources/winter_global_238.asset
+  artifactKey: Guid(278c5ca06f58b244db4c5c8283d0c13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_238.asset using Guid(278c5ca06f58b244db4c5c8283d0c13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e499813ab2e0e35030bdad3d07e143c') in 0.042685 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Resources/winter_global_433.asset
+  artifactKey: Guid(262c97905ef6a1448955a4a56e87e195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_433.asset using Guid(262c97905ef6a1448955a4a56e87e195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0684f8d9fe47405d617c639155207ae1') in 0.006967 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Resources/winter_global_388.asset
+  artifactKey: Guid(b79439143f420b6409247bc2ea08c845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_388.asset using Guid(b79439143f420b6409247bc2ea08c845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09f07a9f217f01cb4c06f02de83f4e39') in 0.097895 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Resources/winter_global_403.asset
+  artifactKey: Guid(c9bfa878df340e445872a489be43485d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_403.asset using Guid(c9bfa878df340e445872a489be43485d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3529b271def6b7b0bba433c289b5102a') in 0.005299 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Resources/winter_global_419.asset
+  artifactKey: Guid(a353f024bbcd2fa488c44ebd4e06d5bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_419.asset using Guid(a353f024bbcd2fa488c44ebd4e06d5bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd41cec04912296fa653ce481aa5e89ff') in 0.004497 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.531208 seconds.
+  path: Assets/Resources/winter_global_454.asset
+  artifactKey: Guid(3958d38f472293b4496667a940ea6b33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_454.asset using Guid(3958d38f472293b4496667a940ea6b33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '006c2c3f13351d12f563c2c1fab281ea') in 0.006363 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Resources/winter_global_458.asset
+  artifactKey: Guid(2cb6f6b205b911d459b40522baa92304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_458.asset using Guid(2cb6f6b205b911d459b40522baa92304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '963636e001083acebc8aa463194c3904') in 0.005658 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Resources/winter_global_469.asset
+  artifactKey: Guid(b7bec7b163837bc45afb35b6929c32a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_469.asset using Guid(b7bec7b163837bc45afb35b6929c32a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcd0aa2d901ac55b86afa30bdd2c6256') in 0.005763 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Resources/winter_global_465.asset
+  artifactKey: Guid(4bab2704cf8d71241a85aac12a42d329) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_465.asset using Guid(4bab2704cf8d71241a85aac12a42d329) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9377e4d8817bcd99ddccdff6f748ce32') in 0.005244 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.090980 seconds.
+  path: Assets/Resources/winter_global_473.asset
+  artifactKey: Guid(9346d8dd0eb90cb4d8888464919c4ffe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_473.asset using Guid(9346d8dd0eb90cb4d8888464919c4ffe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d6b5558e7e908e4afa41b7b2704fadf') in 0.005541 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Resources/winter_global_477.asset
+  artifactKey: Guid(2585f0bc27cb3624c8bdffc70d72e30c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_477.asset using Guid(2585f0bc27cb3624c8bdffc70d72e30c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fa89c4b9a51f4983dfa5402900e07a9') in 0.012338 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Resources/winter_global_498.asset
+  artifactKey: Guid(d5fe0b8735506154f87a03a6afbc64f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_498.asset using Guid(d5fe0b8735506154f87a03a6afbc64f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '734fab95e0abac3680afd81011026ff0') in 0.004767 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Resources/winter_global_497.asset
+  artifactKey: Guid(beaab03fae7708f46a757ddc456f6feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_497.asset using Guid(beaab03fae7708f46a757ddc456f6feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3d3c585f4b0c9a8c5d371cf3913db0b') in 0.004415 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.089807 seconds.
+  path: Assets/Resources/winter_global_514.asset
+  artifactKey: Guid(f536b85a58d186443aea1f6502d6eec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_514.asset using Guid(f536b85a58d186443aea1f6502d6eec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '323915e993469cf2e5e6721edc7c574f') in 0.006962 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Resources/winter_global_559.asset
+  artifactKey: Guid(bfe05799533b13346829dc2ada4138b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_559.asset using Guid(bfe05799533b13346829dc2ada4138b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c6b814db73d8f484fa2dddbd6c5bf48') in 0.006310 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Resources/winter_global_612.asset
+  artifactKey: Guid(43817ff2eec351b4ba32e7260b20e0ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_612.asset using Guid(43817ff2eec351b4ba32e7260b20e0ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc8b8f2b30a333bf44de714e5931212a') in 0.012161 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Resources/winter_global_655.asset
+  artifactKey: Guid(3fcae02690c8fcf42b8e299ab49c1b0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_655.asset using Guid(3fcae02690c8fcf42b8e299ab49c1b0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41ad257118e391748e2d90c5718273ad') in 0.009660 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Resources/winter_global_630.asset
+  artifactKey: Guid(fdefce4669a5a0c4887ece44d01a6605) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_630.asset using Guid(fdefce4669a5a0c4887ece44d01a6605) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd550612b15b20d5a872380f396701323') in 0.023342 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Resources/winter_global_662.asset
+  artifactKey: Guid(9fbf29a3d069b1f4e9a9d7a31cda9909) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_662.asset using Guid(9fbf29a3d069b1f4e9a9d7a31cda9909) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b60490ee67c3bac70c09c26a9b6cbddf') in 0.076235 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Resources/winter_global_694.asset
+  artifactKey: Guid(c21c0ed0eecd35a41b31bdcad50854b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_694.asset using Guid(c21c0ed0eecd35a41b31bdcad50854b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6dd2d03ad4c4dcc6cd68acb8568396e') in 0.075308 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Resources/winter_global_660.asset
+  artifactKey: Guid(106b278349e4cd2409d7d73272d8e4ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_660.asset using Guid(106b278349e4cd2409d7d73272d8e4ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a91de4b63ae2fb351834e9b5f5e015e') in 0.005451 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Resources/winter_global_663.asset
+  artifactKey: Guid(9c696f6159d0c234b872c7e1c9bed383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/winter_global_663.asset using Guid(9c696f6159d0c234b872c7e1c9bed383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5060e9cbbf2f4b1648e7d58016d74b73') in 0.004672 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.477 seconds
+Refreshing native plugins compatible for Editor in 4.55 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.076 seconds
+Domain Reload Profiling: 1554ms
+	BeginReloadAssembly (187ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (11ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (21ms)
+	LoadAllAssembliesAndSetupDomain (214ms)
+		LoadAssemblies (313ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (17ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1077ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (408ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (68ms)
+			ProcessInitializeOnLoadAttributes (297ms)
+			ProcessInitializeOnLoadMethodAttributes (34ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (17ms)
+Refreshing native plugins compatible for Editor in 5.22 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4008 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (35.2 KB). Loaded Objects now: 4505.
+Memory consumption went from 148.4 MB to 148.3 MB.
+Total: 6.122500 ms (FindLiveObjects: 0.353100 ms CreateObjectMapping: 1.123200 ms MarkObjects: 4.562700 ms  DeleteObjects: 0.082500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 43b350a4d6e6d1791af0b5038c4bea17 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.502 seconds
+Refreshing native plugins compatible for Editor in 6.15 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.153 seconds
+Domain Reload Profiling: 1655ms
+	BeginReloadAssembly (205ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (13ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (218ms)
+		LoadAssemblies (330ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (14ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1153ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (463ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (69ms)
+			ProcessInitializeOnLoadAttributes (344ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (28ms)
+Refreshing native plugins compatible for Editor in 6.95 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4009 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (35.3 KB). Loaded Objects now: 4509.
+Memory consumption went from 150.6 MB to 150.5 MB.
+Total: 25.857100 ms (FindLiveObjects: 0.382000 ms CreateObjectMapping: 0.539400 ms MarkObjects: 24.847100 ms  DeleteObjects: 0.087500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 43b350a4d6e6d1791af0b5038c4bea17 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
