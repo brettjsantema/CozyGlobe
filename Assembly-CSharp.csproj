@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CozyGlobe.cs" />
     <Compile Include="Assets\Scripts\CozyGlobeUtils.cs" />
-    <Compile Include="Assets\Scripts\CandyCanes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -9,6 +9,8 @@ using static Assets.Scripts.CozyGlobeUtils;
 
 public class CozyGlobe : MonoBehaviour
 {
+    [SerializeField] private GameObject CandyCane;
+
     public int Presents;
     public List<Villager> Villagers;
     public List<Building> Buildings;
@@ -62,7 +64,8 @@ public class CozyGlobe : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
 		{
             Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
-            for(int i = 0; i < Buttons.Length; i++)
+            SpawnCandyCane(worldCoordClickPosition);
+            for (int i = 0; i < Buttons.Length; i++)
 			{
                 BoxCollider2D button = Buttons[i];
                 if(button.OverlapPoint(worldCoordClickPosition))
@@ -80,6 +83,19 @@ public class CozyGlobe : MonoBehaviour
 				}
 			}
 		}
+
+        //Click and hold to spam candy canes
+        if(Input.GetMouseButton(0) && Time.frameCount % 15 == 0)
+		{
+            Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
+            SpawnCandyCane(worldCoordClickPosition);
+        }
+    }
+
+    public void SpawnCandyCane(Vector3 worldPos)
+	{
+        GameObject candyCane = Instantiate(CandyCane, worldPos, Quaternion.identity);
+        candyCane.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-20f, 20f));
     }
 
     public void Build(BuildingType type)
