@@ -19,7 +19,7 @@ public class CozyGlobe : MonoBehaviour
 
     public Camera MainCamera;
     public BoxCollider2D[] Buttons;
-    public enum ButtonNames { Elf, House };
+    public enum ButtonNames { Elf, House, PretzelStand, Igloo, GingerbreadHouse, Workshop };
     public TextMeshProUGUI PresentsCount;
     public TextMeshProUGUI VillagersCount;
 
@@ -27,10 +27,15 @@ public class CozyGlobe : MonoBehaviour
     void Start()
     {
         MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        Buttons = new BoxCollider2D[2];
+        Buttons = new BoxCollider2D[6];
         Buttons[0] = GameObject.Find("Buy Elf Button").GetComponent<BoxCollider2D>();
         Buttons[1] = GameObject.Find("Buy House Button").GetComponent<BoxCollider2D>();
-        Presents = 10;
+        Buttons[2] = GameObject.Find("Buy Pretzel Stand Button").GetComponent<BoxCollider2D>();
+        Buttons[3] = GameObject.Find("Buy Igloo Button").GetComponent<BoxCollider2D>();
+        Buttons[4] = GameObject.Find("Buy Gingerbread House Button").GetComponent<BoxCollider2D>();
+        Buttons[5] = GameObject.Find("Buy Workshop Button").GetComponent<BoxCollider2D>();
+
+        Presents = 1000;
 
         Villagers = new List<Villager>();
         Buildings = new List<Building>();
@@ -66,6 +71,10 @@ public class CozyGlobe : MonoBehaviour
 					{
                         case ButtonNames.Elf: SpawnElf();  break;
                         case ButtonNames.House: Build(BuildingType.House); break;
+                        case ButtonNames.PretzelStand: Build(BuildingType.PretzelStand); break;
+                        case ButtonNames.Igloo: Build(BuildingType.Igloo); break;
+                        case ButtonNames.GingerbreadHouse: Build(BuildingType.GingerbreadHouse); break;
+                        case ButtonNames.Workshop: Build(BuildingType.Workshop); break;
                         default: break;
 					}
 				}
@@ -95,9 +104,13 @@ public class CozyGlobe : MonoBehaviour
                 for(int y = TopLeft.y; y > TopLeft.y - height - 1; y--)
                     for(int x = TopLeft.x; x < TopLeft.x + width; x++)
 					{
-                        string name = GetTileAssetName(type, x - TopLeft.x, y);
-                        TileBase tile = Resources.Load<Tile>(name);
-                        tilemap.SetTile(new Vector3Int(x, y, 0), tile);
+                        string name = GetTileAssetName(type, x - TopLeft.x, y - TopLeft.y);
+                        if (name != null)
+                        {
+                            TileBase tile = Resources.Load<Tile>(name);
+                            tilemap.SetTile(new Vector3Int(x, y, 0), tile);
+                        }
+                        
 					}
             }
             else Debug.Log("Not enough room!");
@@ -124,22 +137,14 @@ public class CozyGlobe : MonoBehaviour
 public class Building
 {
     public BuildingType Type { get; set; }
-    public static int[] Capacity = { 2, 2, 4, 8};
-    public static int[] Price = { 5, 20, 50, 800 };
-    public static int[] Tilewidth = { 3, 3, 3, 3 };
-    public static int[] Tileheight = { 4, 4, 4, 4 };
+    public static int[] Capacity = { 4, 2, 6, 12, 20 };
+    public static int[] Price = { 5, 10, 20, 200, 800 };
+    public static int[] Tilewidth = { 3, 3, 2, 4, 5 };
+    public static int[] Tileheight = { 4, 4, 2, 5, 8 };
     public int TileWidth;
     public Building(BuildingType type)
 	{
         Type = type;
-        switch(Type)
-		{
-            case BuildingType.House: break;
-            case BuildingType.Igloo: break;
-            case BuildingType.Workshop: break;
-            case BuildingType.PretzelStand: break;
-            default: break;
-        }
 	}
 }
 
