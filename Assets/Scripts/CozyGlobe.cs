@@ -28,6 +28,10 @@ public class CozyGlobe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MeshRenderer r = GameObject.Find("Background").GetComponent<MeshRenderer>();
+        r.sortingLayerName = "Background";
+        r.sortingOrder = -99;
+
         MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         Buttons = new BoxCollider2D[6];
         Buttons[0] = GameObject.Find("Buy Elf Button").GetComponent<BoxCollider2D>();
@@ -44,7 +48,7 @@ public class CozyGlobe : MonoBehaviour
         Buildings.Add(new Building(BuildingType.House));
         TotalCapacity = Building.Capacity[(int) BuildingType.House];
         TotalWidth = Building.Tilewidth[(int) BuildingType.House];
-        BuildingsOrigin = new Vector2Int(-10, -4);
+        BuildingsOrigin = new Vector2Int(-10, -1);
         MaxWidth = 20;
 
         PresentsCount = GameObject.Find("Presents Count").GetComponent<TextMeshProUGUI>();
