@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,7 +6,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Assets.Scripts.CozyGlobeUtils;
-using static CozyGlobeUtils;
 
 public class CozyGlobe : MonoBehaviour
 {
@@ -82,20 +82,23 @@ public class CozyGlobe : MonoBehaviour
             {
                 int width = Building.Tilewidth[(int)type];
                 int height = Building.Tileheight[(int)type];
+                Vector2Int TopLeft = BuildingsOrigin + new Vector2Int(TotalWidth, height);
+
                 Buildings.Add(new Building(BuildingType.House));
                 Presents -= Building.Price[(int)type];
                 TotalWidth += width;
                 TotalCapacity += Building.Capacity[(int)type];
+                RefreshPresentsCount();
+                RefreshVillagersCount();
 
                 Tilemap tilemap = transform.GetComponent<Tilemap>();
-                Vector2Int TopLeft = BuildingsOrigin + new Vector2Int(TotalWidth, height);
-                for(int y = TopLeft.y; y > TopLeft.y - height; y--)
-				{
+                for(int y = TopLeft.y; y > TopLeft.y - height - 1; y--)
                     for(int x = TopLeft.x; x < TopLeft.x + width; x++)
 					{
-                        tilemap.SetTile(new Vector3Int(x, y, 0), )
+                        string name = GetTileAssetName(type, x - TopLeft.x, y);
+                        TileBase tile = Resources.Load<Tile>(name);
+                        tilemap.SetTile(new Vector3Int(x, y, 0), tile);
 					}
-				}
             }
             else Debug.Log("Not enough room!");
         }

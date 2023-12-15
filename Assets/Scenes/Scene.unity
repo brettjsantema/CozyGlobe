@@ -445,10 +445,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Presents: 0
+  TotalCapacity: 0
+  TotalWidth: 0
   BuildingsOrigin: {x: -10, y: -4}
   MaxWidth: 0
   MainCamera: {fileID: 0}
   Buttons: []
+  PresentsCount: {fileID: 0}
+  VillagersCount: {fileID: 0}
 --- !u!1 &107904852
 GameObject:
   m_ObjectHideFlags: 0
