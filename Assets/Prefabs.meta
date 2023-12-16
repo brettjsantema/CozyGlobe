@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: efe7ea2e45dd2f84da5c66568bd970a6
+=======
+guid: f5f126d91d58b354e90150dfcf8ea6f3
+>>>>>>> origin/Candy-Cane-despawn
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

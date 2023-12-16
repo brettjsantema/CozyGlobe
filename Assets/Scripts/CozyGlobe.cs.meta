@@ -3,7 +3,11 @@ guid: db2053ca74834ce46a38dcd584226ac1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - CandyCane: {instanceID: 0}
+  - MainCamera: {instanceID: 0}
+  - PresentsCount: {instanceID: 0}
+  - VillagersCount: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

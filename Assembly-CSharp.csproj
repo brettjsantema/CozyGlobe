@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CozyGlobe.cs" />
     <Compile Include="Assets\Scripts\Villager.cs" />
+    <Compile Include="Assets\Scripts\CandyCane.cs" />
     <Compile Include="Assets\Scripts\ButtonBehavior.cs" />
     <Compile Include="Assets\Scripts\CozyGlobeUtils.cs" />
     <Compile Include="Assets\Scripts\PriceText.cs" />

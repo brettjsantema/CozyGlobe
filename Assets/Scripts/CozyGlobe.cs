@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Assets.Scripts.CozyGlobeUtils;
@@ -69,7 +70,6 @@ public class CozyGlobe : MonoBehaviour
 		{
             Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
             SpawnCandyCane(worldCoordClickPosition);
-			
 		} else if (Input.GetMouseButton(0) && ccTimer >= ccDelaySeconds) //Click and hold to spam candy canes
 		{
             ccTimer = 0;
