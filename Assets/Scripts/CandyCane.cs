@@ -24,9 +24,8 @@ public class CandyCane : MonoBehaviour
     }
 
 
-    IEnumerator fadeOut(SpriteRenderer MyRenderer, float duration)
+    IEnumerator fadeOut(SpriteRenderer MyRenderer, float duration) 
     {
-        Debug.Log("started");
         float counter = 0;
         //Get current color
         Color spriteColor = MyRenderer.material.color;
