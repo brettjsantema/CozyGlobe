@@ -25,12 +25,13 @@ public class CozyGlobe : MonoBehaviour
     public TextMeshProUGUI PresentsCount;
     public TextMeshProUGUI VillagersCount;
 
-    private int ccSpawnFrame = 0;
-    private int ccPerSecond = 1;
+    private float ccTimer;
+    private const float ccDelaySeconds = 0.2f;
 
     // Start is called before the first frame update
     void Start()
     {
+        ccTimer = 0;
         MeshRenderer r = GameObject.Find("Background").GetComponent<MeshRenderer>();
         r.sortingLayerName = "Background";
         r.sortingOrder = -99;
@@ -70,14 +71,15 @@ public class CozyGlobe : MonoBehaviour
         foreach(Villager villager in Villagers) if (Time.frameCount % (3600 / villager.PresentsPerMinute) == 0) Presents++;
         if(Input.GetMouseButtonDown(0))
 		{
+            bool buttonPressed = false;
             Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
-            SpawnCandyCane(worldCoordClickPosition);
             for (int i = 0; i < Buttons.Length; i++)
 			{
                 BoxCollider2D button = Buttons[i];
                 if(button.OverlapPoint(worldCoordClickPosition))
 				{
-                    switch((ButtonNames) i)
+                    buttonPressed = true;
+                    switch ((ButtonNames) i)
 					{
                         case ButtonNames.Elf: SpawnElf();  break;
                         case ButtonNames.House: Build(BuildingType.House); break;
@@ -89,35 +91,17 @@ public class CozyGlobe : MonoBehaviour
 					}
 				}
 			}
-		}else if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
-            SpawnCandyCane(worldCoordClickPosition);
-            for (int i = 0; i < Buttons.Length; i++)
-            {
-                BoxCollider2D button = Buttons[i];
-                if (button.OverlapPoint(worldCoordClickPosition))
-                {
-                    switch ((ButtonNames)i)
-                    {
-                        case ButtonNames.Elf: SpawnElf(); break;
-                        case ButtonNames.House: Build(BuildingType.House); break;
-                        case ButtonNames.PretzelStand: Build(BuildingType.PretzelStand); break;
-                        case ButtonNames.Igloo: Build(BuildingType.Igloo); break;
-                        case ButtonNames.GingerbreadHouse: Build(BuildingType.GingerbreadHouse); break;
-                        case ButtonNames.Workshop: Build(BuildingType.Workshop); break;
-                        default: break;
-                    }
-                }
-            }
-        }
-        if (Input.GetMouseButton(0) && Time.frameCount > ccSpawnFrame && Time.frameCount % (1200/ccPerSecond) == 0) //Click and hold to spam candy canes
+            if(!buttonPressed)
+			{
+                SpawnCandyCane(worldCoordClickPosition);
+			}
+		} else if (Input.GetMouseButton(0) && ccTimer >= ccDelaySeconds) //Click and hold to spam candy canes
 		{
-            ccSpawnFrame = Time.frameCount;
+            ccTimer = 0;
             Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
             SpawnCandyCane(worldCoordClickPosition);
         }
-        Debug.Log(Time.frameCount);
+        ccTimer += Time.deltaTime;
     }
 
 	private void FixedUpdate()
@@ -127,7 +111,7 @@ public class CozyGlobe : MonoBehaviour
 	public void SpawnCandyCane(Vector3 worldPos)
 	{
         GameObject candyCane = Instantiate(CandyCane, worldPos, Quaternion.identity);
-        candyCane.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-20f, 20f));
+        candyCane.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-40f, 40f));
     }
 
     public void Build(BuildingType type)
