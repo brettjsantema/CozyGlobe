@@ -5,34 +5,46 @@ using UnityEngine;
 
 public class CandyCane : MonoBehaviour
 {
-    public GameObject FadeOutLine;
+    public Transform target;
     public float FadeSpeed;
+    public SpriteRenderer Renderer;
 
     private void Start()
     {
-        FadeOutLine = GameObject.Find("Candy Canes Fade Line");
+        Renderer = GetComponent<SpriteRenderer>();
+        target = GameObject.Find("CandyCaneLine").GetComponent<Transform>();
     }
 
     private void Update()
     {
-        Color ObjectColor = this.GetComponent<SpriteRenderer>().material.color;
-        float FadeAmount = ObjectColor.a - (FadeSpeed * Time.deltaTime);
-    }
-
-    private void OnBecameInvisible()
-    {
-        GameObject.Destroy(gameObject);
-    }
-
-    IEnumerator FadeOut()
-    {
-        Debug.Log("Coroutine started");
-        Color ObjectColor = this.GetComponent<SpriteRenderer>().material.color;
-        float FadeAmount = ObjectColor.a - (FadeSpeed * Time.deltaTime);
-        switch (ObjectColor.a)
+        if (gameObject.transform.position.y <= target.position.y)
         {
-            case 0: Debug.Log("Aplah @ 0"); break;
+            StartCoroutine(fadeOut(Renderer, FadeSpeed));
         }
-        yield return null;
+    }
+
+
+    IEnumerator fadeOut(SpriteRenderer MyRenderer, float duration)
+    {
+        Debug.Log("started");
+        float counter = 0;
+        //Get current color
+        Color spriteColor = MyRenderer.material.color;
+
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+            //Fade from 1 to 0
+            float alpha = Mathf.Lerp(1, 0, counter / duration);
+            if(alpha <= 0)
+            {
+                GameObject.Destroy(gameObject);
+            }
+
+            //Change alpha only
+            MyRenderer.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
+            //Wait for a frame
+            yield return null;
+        }
     }
 }

@@ -118,7 +118,7 @@ public class CozyGlobe : MonoBehaviour
             Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
             SpawnCandyCane(worldCoordClickPosition);
         }
-        Debug.Log(Time.frameCount);
+        //Debug.Log(Time.frameCount);
     }
 
 	private void FixedUpdate()
@@ -129,7 +129,6 @@ public class CozyGlobe : MonoBehaviour
 	{
         GameObject candyCane = Instantiate(CandyCane, worldPos, Quaternion.identity);
         candyCane.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-20f, 20f));
-        candyCane.transform.parent = GameObject.Find("Candy Canes").gameObject.transform;
     }
 
     public void Build(BuildingType type)
