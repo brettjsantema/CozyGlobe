@@ -23,7 +23,6 @@ public class CandyCane : MonoBehaviour
         }
     }
 
-
     IEnumerator fadeOut(SpriteRenderer MyRenderer, float duration) 
     {
         float counter = 0;
