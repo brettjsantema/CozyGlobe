@@ -90,28 +90,8 @@ public class CozyGlobe : MonoBehaviour
 					}
 				}
 			}
-		}else if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
-            SpawnCandyCane(worldCoordClickPosition);
-            for (int i = 0; i < Buttons.Length; i++)
-            {
-                BoxCollider2D button = Buttons[i];
-                if (button.OverlapPoint(worldCoordClickPosition))
-                {
-                    switch ((ButtonNames)i)
-                    {
-                        case ButtonNames.Elf: SpawnElf(); break;
-                        case ButtonNames.House: Build(BuildingType.House); break;
-                        case ButtonNames.PretzelStand: Build(BuildingType.PretzelStand); break;
-                        case ButtonNames.Igloo: Build(BuildingType.Igloo); break;
-                        case ButtonNames.GingerbreadHouse: Build(BuildingType.GingerbreadHouse); break;
-                        case ButtonNames.Workshop: Build(BuildingType.Workshop); break;
-                        default: break;
-                    }
-                }
-            }
-        }
+		}
+
         if (Input.GetMouseButton(0) && Time.frameCount > ccSpawnFrame && Time.frameCount % (1200/ccPerSecond) == 0) //Click and hold to spam candy canes
 		{
             ccSpawnFrame = Time.frameCount;
