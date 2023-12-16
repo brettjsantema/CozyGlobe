@@ -10,6 +10,7 @@ using static Assets.Scripts.CozyGlobeUtils;
 public class CozyGlobe : MonoBehaviour
 {
     [SerializeField] private GameObject CandyCane;
+    [SerializeField] private Villager Villager;
 
     public int Presents;
     public List<Villager> Villagers;
@@ -20,7 +21,6 @@ public class CozyGlobe : MonoBehaviour
     public int MaxWidth;
 
     public Camera MainCamera;
-    public BoxCollider2D[] Buttons;
     public enum ButtonNames { Elf, House, PretzelStand, Igloo, GingerbreadHouse, Workshop };
     public TextMeshProUGUI PresentsCount;
     public TextMeshProUGUI VillagersCount;
@@ -35,23 +35,8 @@ public class CozyGlobe : MonoBehaviour
         MeshRenderer r = GameObject.Find("Background").GetComponent<MeshRenderer>();
         r.sortingLayerName = "Background";
         r.sortingOrder = -99;
-
         MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        Buttons = new BoxCollider2D[6];
-        Buttons[0] = GameObject.Find("Buy Elf Button").GetComponent<BoxCollider2D>();
-        Buttons[1] = GameObject.Find("Buy House Button").GetComponent<BoxCollider2D>();
-        Buttons[2] = GameObject.Find("Buy Pretzel Stand Button").GetComponent<BoxCollider2D>();
-        Buttons[3] = GameObject.Find("Buy Igloo Button").GetComponent<BoxCollider2D>();
-        Buttons[4] = GameObject.Find("Buy Gingerbread House Button").GetComponent<BoxCollider2D>();
-        Buttons[5] = GameObject.Find("Buy Workshop Button").GetComponent<BoxCollider2D>();
-
-        Presents = 1000;
-
-        Villagers = new List<Villager>();
-        Buildings = new List<Building>();
-        Buildings.Add(new Building(BuildingType.House));
-        TotalCapacity = Building.Capacity[(int) BuildingType.House];
-        TotalWidth = Building.Tilewidth[(int) BuildingType.House];
+        Presents = 9005;
         BuildingsOrigin = new Vector2Int(-10, -1);
         MaxWidth = 20;
 
@@ -61,40 +46,30 @@ public class CozyGlobe : MonoBehaviour
         VillagersCount.outlineWidth = 0.2f;
         PresentsCount.outlineColor = Color.black;
         VillagersCount.outlineColor = Color.black;
-        RefreshVillagersCount();
-        RefreshPresentsCount();
+
+        // Start out with 1 building and an elf
+        Villagers = new List<Villager>();
+        Buildings = new List<Building>();
+        Build(BuildingType.Shed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach(Villager villager in Villagers) if (Time.frameCount % (3600 / villager.PresentsPerMinute) == 0) Presents++;
+        foreach (Villager villager in Villagers)
+        {
+            if (Time.frameCount % (3600 / Villager.PresentsPerMinute[(int)villager.Type]) == 0)
+            {
+                Presents++;
+                RefreshPresentsCount();
+            }
+        }
+
         if(Input.GetMouseButtonDown(0))
 		{
-            bool buttonPressed = false;
             Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
-            for (int i = 0; i < Buttons.Length; i++)
-			{
-                BoxCollider2D button = Buttons[i];
-                if(button.OverlapPoint(worldCoordClickPosition))
-				{
-                    buttonPressed = true;
-                    switch ((ButtonNames) i)
-					{
-                        case ButtonNames.Elf: SpawnElf();  break;
-                        case ButtonNames.House: Build(BuildingType.House); break;
-                        case ButtonNames.PretzelStand: Build(BuildingType.PretzelStand); break;
-                        case ButtonNames.Igloo: Build(BuildingType.Igloo); break;
-                        case ButtonNames.GingerbreadHouse: Build(BuildingType.GingerbreadHouse); break;
-                        case ButtonNames.Workshop: Build(BuildingType.Workshop); break;
-                        default: break;
-					}
-				}
-			}
-            if(!buttonPressed)
-			{
-                SpawnCandyCane(worldCoordClickPosition);
-			}
+            SpawnCandyCane(worldCoordClickPosition);
+			
 		} else if (Input.GetMouseButton(0) && ccTimer >= ccDelaySeconds) //Click and hold to spam candy canes
 		{
             ccTimer = 0;
@@ -111,12 +86,11 @@ public class CozyGlobe : MonoBehaviour
 	public void SpawnCandyCane(Vector3 worldPos)
 	{
         GameObject candyCane = Instantiate(CandyCane, worldPos, Quaternion.identity);
-        candyCane.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-40f, 40f));
+        candyCane.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-40, 40));
     }
 
     public void Build(BuildingType type)
 	{
-        Debug.Log("CLICKED " + nameof(type) + " BUTTON");
         if (Presents >= Building.Price[(int)type])
         {
             if (Building.Tilewidth[(int)type] <= MaxWidth - TotalWidth)
@@ -125,7 +99,7 @@ public class CozyGlobe : MonoBehaviour
                 int height = Building.Tileheight[(int)type];
                 Vector2Int TopLeft = BuildingsOrigin + new Vector2Int(TotalWidth, height);
 
-                Buildings.Add(new Building(BuildingType.House));
+                Buildings.Add(new Building(type));
                 Presents -= Building.Price[(int)type];
                 TotalWidth += width;
                 TotalCapacity += Building.Capacity[(int)type];
@@ -150,9 +124,23 @@ public class CozyGlobe : MonoBehaviour
         else Debug.Log("Not enough presents!");
 	}
 
-    public void SpawnElf()
+    public void SpawnVillager(VillagerType type)
     {
-        Debug.Log("!!CLICKED ELF BUTTON!!");
+        if (Presents >= Villager.Price[(int)type])
+        {
+            if (Villagers.Count < TotalCapacity)
+            {
+                Villagers.Add(new Villager(type));
+                Presents -= Villager.Price[(int)type];
+                RefreshPresentsCount();
+                RefreshVillagersCount();
+
+                Villager v = Instantiate(Villager, Vector3.zero, Quaternion.identity);
+                v.SetType(type);
+            }
+            else Debug.Log("Not enough room!");
+        }
+        else Debug.Log("Not enough presents!");
     }
 
     public void RefreshVillagersCount()
@@ -169,10 +157,10 @@ public class CozyGlobe : MonoBehaviour
 public class Building
 {
     public BuildingType Type { get; set; }
-    public static int[] Capacity = { 4, 2, 6, 12, 20 };
-    public static int[] Price = { 5, 10, 20, 200, 800 };
-    public static int[] Tilewidth = { 3, 3, 2, 4, 5 };
-    public static int[] Tileheight = { 4, 4, 2, 5, 8 };
+    public static int[] Capacity = { 4, 2, 6, 6, 12, 20 };
+    public static int[] Price = { 5, 10, 20, 100, 185, 350 };
+    public static int[] Tilewidth = { 3, 2, 3, 5, 4, 5 };
+    public static int[] Tileheight = { 4, 2, 4, 4, 5, 8 };
     public int TileWidth;
     public Building(BuildingType type)
 	{
@@ -184,24 +172,4 @@ public class Decoration
 {
 
 }
-public class Villager
-{
-    public VillagerType Type { get; set; }
-    public string Name { get; set; }
-    public int PresentsPerMinute { get; set; }
-    public int Exp { get; set; }
-    public int Level { get; set; } 
-    public int TotalPresentsEarned { get; set; }
-    public Villager(VillagerType type)
-	{
-        Type = type;
-        Name = nameof(Type);
-        Level = 1;
-        switch(Type)
-		{
-            case VillagerType.Elf: PresentsPerMinute = 1; break;
-            default: PresentsPerMinute = 0; break;
-		}
-	}
 
-}

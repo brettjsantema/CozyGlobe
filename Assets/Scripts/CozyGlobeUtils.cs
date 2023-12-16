@@ -9,15 +9,15 @@ namespace Assets.Scripts
 {
     public static class CozyGlobeUtils
     {
-        public enum VillagerType { Elf, Santa, GingerbreadMan, SnowMan };
-        public enum BuildingType { House, PretzelStand, Igloo, GingerbreadHouse, Workshop };
+        public enum VillagerType { Elf, Craftsman, Snowman, Baker, GingerbreadMan, Iceman };
+        public enum BuildingType { Shed, Igloo, PretzelStand, CookieStand, GingerbreadHouse, Workshop };
         public enum DecorationType { DeadTree, ElmTree, BlueFlowers, RedFlowers };
         public static int[] ExpToNextLvl = new int[] { 0, 100, 500, 2000, 5000, 10000 }; // 1-indexed
 
         public static string GetTileAssetName(BuildingType type, int x, int y)
 		{
             string name = "winter_global_";
-            if (type == BuildingType.House)
+            if (type == BuildingType.Shed)
             {
                 switch (y)
                 {
@@ -36,6 +36,16 @@ namespace Assets.Scripts
                     case -2: return name + (266 + x);
                     case -3: return name + (296 + x);
                     case -4: return name + (329 + x);
+                }
+            }
+            else if (type == BuildingType.CookieStand)
+            {
+                switch (y)
+                {
+                    case -1: return name + (233 + x);
+                    case -2: return name + (258 + x);
+                    case -3: return name + (286 + x);
+                    case -4: return name + (319 + x);
                 }
             }
             else if (type == BuildingType.Igloo)
