@@ -26,9 +26,16 @@ public class CozyGlobe : MonoBehaviour
     public TextMeshProUGUI PresentsCount;
     public TextMeshProUGUI VillagersCount;
 
+    private int ccSpawnFrame = 0;
+    private int ccPerSecond = 1;
+
     // Start is called before the first frame update
     void Start()
     {
+        MeshRenderer r = GameObject.Find("Background").GetComponent<MeshRenderer>();
+        r.sortingLayerName = "Background";
+        r.sortingOrder = -99;
+
         MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         Buttons = new BoxCollider2D[6];
         Buttons[0] = GameObject.Find("Buy Elf Button").GetComponent<BoxCollider2D>();
@@ -45,7 +52,7 @@ public class CozyGlobe : MonoBehaviour
         Buildings.Add(new Building(BuildingType.House));
         TotalCapacity = Building.Capacity[(int) BuildingType.House];
         TotalWidth = Building.Tilewidth[(int) BuildingType.House];
-        BuildingsOrigin = new Vector2Int(-10, -4);
+        BuildingsOrigin = new Vector2Int(-10, -1);
         MaxWidth = 20;
 
         PresentsCount = GameObject.Find("Presents Count").GetComponent<TextMeshProUGUI>();
@@ -83,17 +90,42 @@ public class CozyGlobe : MonoBehaviour
 					}
 				}
 			}
-		}
-
-        //Click and hold to spam candy canes
-        if(Input.GetMouseButton(0) && Time.frameCount % 15 == 0)
+		}else if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
+            SpawnCandyCane(worldCoordClickPosition);
+            for (int i = 0; i < Buttons.Length; i++)
+            {
+                BoxCollider2D button = Buttons[i];
+                if (button.OverlapPoint(worldCoordClickPosition))
+                {
+                    switch ((ButtonNames)i)
+                    {
+                        case ButtonNames.Elf: SpawnElf(); break;
+                        case ButtonNames.House: Build(BuildingType.House); break;
+                        case ButtonNames.PretzelStand: Build(BuildingType.PretzelStand); break;
+                        case ButtonNames.Igloo: Build(BuildingType.Igloo); break;
+                        case ButtonNames.GingerbreadHouse: Build(BuildingType.GingerbreadHouse); break;
+                        case ButtonNames.Workshop: Build(BuildingType.Workshop); break;
+                        default: break;
+                    }
+                }
+            }
+        }
+        if (Input.GetMouseButton(0) && Time.frameCount > ccSpawnFrame && Time.frameCount % (1200/ccPerSecond) == 0) //Click and hold to spam candy canes
 		{
+            ccSpawnFrame = Time.frameCount;
             Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
             SpawnCandyCane(worldCoordClickPosition);
         }
+        Debug.Log(Time.frameCount);
     }
 
-    public void SpawnCandyCane(Vector3 worldPos)
+	private void FixedUpdate()
+	{
+        
+	}
+	public void SpawnCandyCane(Vector3 worldPos)
 	{
         GameObject candyCane = Instantiate(CandyCane, worldPos, Quaternion.identity);
         candyCane.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-20f, 20f));
