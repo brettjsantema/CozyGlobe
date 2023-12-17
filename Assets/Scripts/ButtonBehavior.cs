@@ -32,6 +32,8 @@ public class ButtonBehavior : MonoBehaviour
             case 9: cozyGlobe.SpawnVillager(VillagerType.Baker); break;
             case 10: cozyGlobe.SpawnVillager(VillagerType.GingerbreadMan); break;
             case 11: cozyGlobe.SpawnVillager(VillagerType.Iceman); break;
+            case 12: cozyGlobe.ToggleVillagerView(); break;
+            case 13: cozyGlobe.NextPage(); break;
         }
 	}
 }
