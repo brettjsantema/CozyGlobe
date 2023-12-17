@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9072077983250632330}
   - component: {fileID: 6876196278346898913}
   m_Layer: 0
-  m_Name: CandyCaneTemplate
+  m_Name: CandyCane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

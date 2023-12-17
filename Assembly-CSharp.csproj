@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CozyGlobe.cs" />
+    <Compile Include="Assets\Scripts\PlusPresent.cs" />
     <Compile Include="Assets\Scripts\Villager.cs" />
     <Compile Include="Assets\Scripts\CandyCane.cs" />
     <Compile Include="Assets\Scripts\ButtonBehavior.cs" />
