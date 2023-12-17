@@ -32,4 +32,9 @@ public class MainMenu : MonoBehaviour
     {
         HowToPlayScene.SetActive(false);
     }
+
+    public void MainMenuFunction()
+    {
+        SceneManager.LoadScene(sceneName: "Main Menu");
+    }
 }
