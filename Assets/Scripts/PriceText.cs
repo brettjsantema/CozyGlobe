@@ -11,7 +11,7 @@ public class PriceText : MonoBehaviour
     void Start()
     {
         TextMeshProUGUI tmp = GetComponent<TextMeshProUGUI>();
-        if(isRightOfScreen) tmp.text = "-" + Building.Price[buttonIndex];
+        if(!isRightOfScreen) tmp.text = "-" + Building.Price[buttonIndex];
         else tmp.text = "-" + Villager.Price[buttonIndex];
     }
 
