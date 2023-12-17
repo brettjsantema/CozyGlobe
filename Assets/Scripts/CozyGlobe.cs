@@ -13,10 +13,8 @@ public class CozyGlobe : MonoBehaviour
     [SerializeField] private GameObject CandyCane;
     [SerializeField] private Villager Villager;
     [SerializeField] private AudioClip ErrorSound;
-    [SerializeField] public GameObject VillagersView;
-    [SerializeField] public VillagerCard VillagerCardPrefab;
     private AudioSource audioSource;
-    private int currentPageIndex = 0;
+
     public int Presents;
     public List<Villager> Villagers;
     public List<Building> Buildings;
@@ -37,7 +35,7 @@ public class CozyGlobe : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        VillagersView.SetActive(false);
+
         ccTimer = 0;
         MeshRenderer r = GameObject.Find("Background").GetComponent<MeshRenderer>();
         r.sortingLayerName = "Background";
@@ -144,39 +142,6 @@ public class CozyGlobe : MonoBehaviour
         }
     }
 
-    public void ToggleVillagerView()
-	{
-        VillagersView.SetActive(!VillagersView.activeInHierarchy);
-        if (VillagersView.activeInHierarchy)
-        {
-            int maxPage = ((Villagers.Count - 1) / 6) + 1;
-            VillagersView.transform.Find("PageNumber").GetComponent<TextMeshProUGUI>().text = "Page " + (currentPageIndex + 1) + "/" + maxPage;
-            int startIndex = currentPageIndex * 6;
-            for(int i = startIndex; i < Villagers.Count && i < startIndex + 6; i++)
-            {
-                Villager v = Villagers[i];
-                VillagerCard vc = Instantiate(VillagerCardPrefab, VillagersView.transform);
-                vc.cardIndex = i;
-                vc.villager = v;
-            }
-        }
-        else currentPageIndex = 0;
-    }
-
-    public void NextPage()
-	{
-        int maxPage = ((Villagers.Count - 1) / 6) + 1;
-        if (maxPage - 1 == currentPageIndex) audioSource.PlayOneShot(ErrorSound);
-		else
-		{
-            foreach(VillagerCard vc in VillagersView.GetComponentsInChildren<VillagerCard>()) Destroy(vc);
-            VillagersView.SetActive(false);
-            currentPageIndex++;
-            ToggleVillagerView();
-            VillagersView.transform.Find("PageNumber").GetComponent<TextMeshProUGUI>().text = "Page " + (currentPageIndex + 1) + "/" + maxPage;
-        }
-    }
-
     public void RefreshVillagersCount()
 	{
         VillagersCount.text = "*" + Villagers.Count + "/" + TotalCapacity + "*";
@@ -191,8 +156,8 @@ public class CozyGlobe : MonoBehaviour
 public class Building
 {
     public BuildingType Type { get; set; }
-    public static int[] Capacity = { 2, 4, 8, 12, 20, 50 };
-    public static int[] Price = { 50, 100, 200, 400, 500, 1000 };
+    public static int[] Capacity = { 4, 2, 6, 6, 12, 20 };
+    public static int[] Price = { 50, 100, 200, 5000, 850, 1500 };
     public static int[] Tilewidth = { 3, 2, 3, 5, 4, 5 };
     public static int[] Tileheight = { 4, 2, 4, 4, 5, 8 };
     public int TileWidth;

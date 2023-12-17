@@ -21,8 +21,8 @@ public class Villager : MonoBehaviour
     public int Level { get; set; }
     public int TotalPresentsEarned { get; set; }
 
-    public static int[] ExpToNextLvl = new int[] { 0, 25, 50, 100, 200, 400, 1000 }; // 1-indexed
-    public static int[] Price = { 5, 10, 20, 100, 200, 350 };
+    public static int[] ExpToNextLvl = new int[] { 0, 12, 500, 2000, 5000, 10000, 15000 }; // 1-indexed
+    public static int[] Price = { 5, 10, 20, 100, 185, 350 };
     public static float[] SecondsPerPresent = { 8, 6, 4, 2, 1, 0.5f };
     private float timer = 0;
 	private void Awake()
