@@ -7366,7 +7366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonIndex: 0
-  isRightOfScreen: 0
+  isRightOfScreen: 1
 --- !u!114 &1039442587
 MonoBehaviour:
   m_ObjectHideFlags: 0
