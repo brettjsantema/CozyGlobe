@@ -9,7 +9,7 @@ public class PlusPresent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Play sound
+
     }
 
     // Update is called once per frame

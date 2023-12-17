@@ -12,6 +12,8 @@ public class CozyGlobe : MonoBehaviour
 {
     [SerializeField] private GameObject CandyCane;
     [SerializeField] private Villager Villager;
+    [SerializeField] private AudioClip ErrorSound;
+    private AudioSource audioSource;
 
     public int Presents;
     public List<Villager> Villagers;
@@ -32,12 +34,14 @@ public class CozyGlobe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         ccTimer = 0;
         MeshRenderer r = GameObject.Find("Background").GetComponent<MeshRenderer>();
         r.sortingLayerName = "Background";
         r.sortingOrder = -99;
         MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        Presents = 9005;
+        Presents = 60;
         BuildingsOrigin = new Vector2Int(-10, -1);
         MaxWidth = 20;
 
@@ -117,7 +121,7 @@ public class CozyGlobe : MonoBehaviour
         {
             if (Villagers.Count < TotalCapacity)
             {
-                
+
                 Presents -= Villager.Price[(int)type];
                 Villager v = Instantiate(Villager, Vector3.zero, Quaternion.identity);
                 v.SetType(type);
@@ -125,9 +129,17 @@ public class CozyGlobe : MonoBehaviour
                 RefreshPresentsCount();
                 RefreshVillagersCount();
             }
-            else Debug.Log("Not enough room!");
+            else
+            {
+                Debug.Log("Not enough room!");
+                audioSource.PlayOneShot(ErrorSound);
+            }
         }
-        else Debug.Log("Not enough presents!");
+        else
+        {
+            Debug.Log("Not enough presents!");
+            audioSource.PlayOneShot(ErrorSound);
+        }
     }
 
     public void RefreshVillagersCount()
@@ -145,7 +157,7 @@ public class Building
 {
     public BuildingType Type { get; set; }
     public static int[] Capacity = { 4, 2, 6, 6, 12, 20 };
-    public static int[] Price = { 5, 10, 20, 100, 185, 350 };
+    public static int[] Price = { 50, 100, 200, 5000, 850, 1500 };
     public static int[] Tilewidth = { 3, 2, 3, 5, 4, 5 };
     public static int[] Tileheight = { 4, 2, 4, 4, 5, 8 };
     public int TileWidth;

@@ -44,7 +44,13 @@ public class CandyCane : MonoBehaviour
             Renderer.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
         }
         foreach (Villager v in cozyGlobe.Villagers)
-            if (ccCollider.IsTouching(v.vCollider)) 
+            if (ccCollider.IsTouching(v.vCollider))
+			{
                 Debug.Log(v.Nickname + " collided with a candy cane!");
+                v.EatCandyCane();
+                GameObject.Destroy(gameObject);
+                //Play sound
+			}
+                
     }
 }
