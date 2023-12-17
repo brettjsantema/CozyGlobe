@@ -12,8 +12,6 @@ public class CozyGlobe : MonoBehaviour
 {
     [SerializeField] private GameObject CandyCane;
     [SerializeField] private Villager Villager;
-    [SerializeField] private AudioClip ErrorSound;
-    private AudioSource audioSource;
 
     public int Presents;
     public List<Villager> Villagers;
@@ -34,14 +32,12 @@ public class CozyGlobe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
         ccTimer = 0;
         MeshRenderer r = GameObject.Find("Background").GetComponent<MeshRenderer>();
         r.sortingLayerName = "Background";
         r.sortingOrder = -99;
         MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        Presents = 60;
+        Presents = 9005;
         BuildingsOrigin = new Vector2Int(-10, -1);
         MaxWidth = 20;
 
@@ -56,21 +52,29 @@ public class CozyGlobe : MonoBehaviour
         Villagers = new List<Villager>();
         Buildings = new List<Building>();
         Build(BuildingType.Shed);
-        SpawnVillager(VillagerType.Elf);
     }
 
     // Update is called once per frame
     void Update()
     {
+        foreach (Villager villager in Villagers)
+        {
+            if (Time.frameCount % (3600 / Villager.PresentsPerMinute[(int)villager.Type]) == 0)
+            {
+                Presents++;
+                RefreshPresentsCount();
+            }
+        }
+
         if(Input.GetMouseButtonDown(0))
 		{
             Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(CandyCane, worldCoordClickPosition, Quaternion.identity);
-        } else if (Input.GetMouseButton(0) && ccTimer >= ccDelaySeconds) //Click and hold to spam candy canes
+            SpawnCandyCane(worldCoordClickPosition);
+		} else if (Input.GetMouseButton(0) && ccTimer >= ccDelaySeconds) //Click and hold to spam candy canes
 		{
             ccTimer = 0;
             Vector2 worldCoordClickPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(CandyCane, worldCoordClickPosition, Quaternion.identity);
+            SpawnCandyCane(worldCoordClickPosition);
         }
         ccTimer += Time.deltaTime;
     }
@@ -79,6 +83,11 @@ public class CozyGlobe : MonoBehaviour
 	{
         
 	}
+	public void SpawnCandyCane(Vector3 worldPos)
+	{
+        GameObject candyCane = Instantiate(CandyCane, worldPos, Quaternion.identity);
+        candyCane.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-40, 40));
+    }
 
     public void Build(BuildingType type)
 	{
@@ -121,25 +130,17 @@ public class CozyGlobe : MonoBehaviour
         {
             if (Villagers.Count < TotalCapacity)
             {
-
+                Villagers.Add(new Villager(type));
                 Presents -= Villager.Price[(int)type];
-                Villager v = Instantiate(Villager, Vector3.zero, Quaternion.identity);
-                v.SetType(type);
-                Villagers.Add(v);
                 RefreshPresentsCount();
                 RefreshVillagersCount();
+
+                Villager v = Instantiate(Villager, Vector3.zero, Quaternion.identity);
+                v.SetType(type);
             }
-            else
-            {
-                Debug.Log("Not enough room!");
-                audioSource.PlayOneShot(ErrorSound);
-            }
+            else Debug.Log("Not enough room!");
         }
-        else
-        {
-            Debug.Log("Not enough presents!");
-            audioSource.PlayOneShot(ErrorSound);
-        }
+        else Debug.Log("Not enough presents!");
     }
 
     public void RefreshVillagersCount()
@@ -157,7 +158,7 @@ public class Building
 {
     public BuildingType Type { get; set; }
     public static int[] Capacity = { 4, 2, 6, 6, 12, 20 };
-    public static int[] Price = { 50, 100, 200, 5000, 850, 1500 };
+    public static int[] Price = { 5, 10, 20, 100, 185, 350 };
     public static int[] Tilewidth = { 3, 2, 3, 5, 4, 5 };
     public static int[] Tileheight = { 4, 2, 4, 4, 5, 8 };
     public int TileWidth;

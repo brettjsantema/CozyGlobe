@@ -8,15 +8,14 @@ public class ButtonBehavior : MonoBehaviour
 {
     [SerializeField] public int buttonIndex = 0;
     private CozyGlobe cozyGlobe;
-    private Button btn;
-
-    public void Awake()
+	public void Start()
 	{
         cozyGlobe = GameObject.Find("CozyGlobeTiles").GetComponent<CozyGlobe>();
-        btn = GetComponent<Button>();
+
     }
 	public void OnButtonPress()
 	{
+        Button btn = GetComponent<Button>();
         Debug.Log("Button Pressed " + buttonIndex);
         switch(buttonIndex)
 		{
